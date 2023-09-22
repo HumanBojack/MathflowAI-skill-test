@@ -1,0 +1,190 @@
+[
+    {
+        "model": "base.user",
+        "pk": 1,
+        "fields": {
+            "username": "HumanBojack",
+            "money": 0
+        }
+    },
+    {
+        "model": "base.question",
+        "pk": 1,
+        "fields": {
+            "question": "La somme de deux nombres pairs est toujours un nombre pair.",
+            "answer": true,
+            "money_value": 10
+        }
+    },
+    {
+        "model": "base.question",
+        "pk": 2,
+        "fields": {
+            "question": "L'équation x^2 - 4 = 0 a deux solutions réelles distinctes.",
+            "answer": true,
+            "money_value": 15
+        }
+    },
+    {
+        "model": "base.question",
+        "pk": 3,
+        "fields": {
+            "question": "La dérivée de la fonction constante f(x) = 7 est f'(x) = 0.",
+            "answer": true,
+            "money_value": 12
+        }
+    },
+    {
+        "model": "base.question",
+        "pk": 4,
+        "fields": {
+            "question": "Tous les triangles équilatéraux sont aussi des triangles isocèles.",
+            "answer": false,
+            "money_value": 8
+        }
+    },
+    {
+        "model": "base.question",
+        "pk": 5,
+        "fields": {
+            "question": "L'intégrale de x^2 de 0 à 1 est égale à 1/3.",
+            "answer": false,
+            "money_value": 14
+        }
+    },
+    {
+        "model": "base.question",
+        "pk": 6,
+        "fields": {
+            "question": "10! (10 factorielle) est égal à 1000.",
+            "answer": false,
+            "money_value": 18
+        }
+    },
+    {
+        "model": "base.question",
+        "pk": 7,
+        "fields": {
+            "question": "Un nombre premier est divisible par un autre nombre premier différent.",
+            "answer": true,
+            "money_value": 16
+        }
+    },
+    {
+        "model": "base.question",
+        "pk": 8,
+        "fields": {
+            "question": "Tous les parallélogrammes ont au moins un angle droit.",
+            "answer": false,
+            "money_value": 9
+        }
+    },
+    {
+        "model": "base.question",
+        "pk": 9,
+        "fields": {
+            "question": "La valeur absolue de -5 est plus grande que la valeur absolue de 3.",
+            "answer": true,
+            "money_value": 11
+        }
+    },
+    {
+        "model": "base.question",
+        "pk": 10,
+        "fields": {
+            "question": "Le nombre π (pi) est rationnel.",
+            "answer": false,
+            "money_value": 20
+        }
+    },
+    {
+        "model": "base.question",
+        "pk": 11,
+        "fields": {
+            "question": "La racine carrée de 16 est un nombre rationnel.",
+            "answer": true,
+            "money_value": 13
+        }
+    },
+    {
+        "model": "base.question",
+        "pk": 12,
+        "fields": {
+            "question": "Un polygone régulier a tous ses côtés et tous ses angles égaux.",
+            "answer": true,
+            "money_value": 15
+        }
+    },
+    {
+        "model": "base.question",
+        "pk": 13,
+        "fields": {
+            "question": "L'ensemble vide est un sous-ensemble de tout ensemble.",
+            "answer": true,
+            "money_value": 10
+        }
+    },
+    {
+        "model": "base.question",
+        "pk": 14,
+        "fields": {
+            "question": "La médiane d'un ensemble de données est toujours égale à la moyenne.",
+            "answer": false,
+            "money_value": 12
+        }
+    },
+    {
+        "model": "base.question",
+        "pk": 15,
+        "fields": {
+            "question": "Le produit de deux nombres négatifs est positif.",
+            "answer": true,
+            "money_value": 10
+        }
+    },
+    {
+        "model": "base.question",
+        "pk": 16,
+        "fields": {
+            "question": "Tous les trapèzes sont des rectangles.",
+            "answer": false,
+            "money_value": 9
+        }
+    },
+    {
+        "model": "base.question",
+        "pk": 17,
+        "fields": {
+            "question": "La somme des angles intérieurs d'un triangle est égale à 180 degrés.",
+            "answer": true,
+            "money_value": 12
+        }
+    },
+    {
+        "model": "base.question",
+        "pk": 18,
+        "fields": {
+            "question": "Le nombre 0 est un nombre premier.",
+            "answer": false,
+            "money_value": 8
+        }
+    },
+    {
+        "model": "base.question",
+        "pk": 19,
+        "fields": {
+            "question": "Une équation linéaire a toujours une seule solution.",
+            "answer": true,
+            "money_value": 14
+        }
+    },
+    {
+        "model": "base.question",
+        "pk": 20,
+        "fields": {
+            "question": "La probabilité d'obtenir un nombre impair en lançant un dé équilibré à six faces est de 1/2.",
+            "answer": true,
+            "money_value": 13
+        }
+    }
+]
