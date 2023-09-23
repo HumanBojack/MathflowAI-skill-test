@@ -22,9 +22,13 @@ class Answer(models.Model):
         Question, on_delete=models.CASCADE, related_name="answers"
     )
     answer = models.BooleanField()
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.answer
+        return str(self.answer)
+
+    class Meta:
+        unique_together = (("user", "question"),)
 
     def clean(self):
         if (
