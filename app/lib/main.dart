@@ -86,6 +86,12 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
+  void updateApiUrl(String newUrl) {
+    setState(() {
+      apiUrl = newUrl;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -100,6 +106,17 @@ class _MyHomePageState extends State<MyHomePage> {
             child: ElevatedButton(
               onPressed: fetchQuestion,
               child: Text('Nouvelle question'),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: TextFormField(
+              initialValue: apiUrl,
+              onChanged: updateApiUrl,
+              decoration: InputDecoration(
+                labelText: 'Enter API URL',
+                border: OutlineInputBorder(),
+              ),
             ),
           ),
           Expanded(
