@@ -46,6 +46,28 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
+  Future<void> sendAnswer(bool isTrue) async {
+    final answer = {
+      "user_id": userId,
+      "question_id": questionId,
+      "answer": isTrue
+    };
+
+    final response = await http.post(
+      Uri.parse('$apiUrl/answer/'),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: json.encode(answer),
+    );
+
+    if (response.statusCode == 200) {
+      fetchQuestion();
+    } else {
+      throw Exception('Failed to send answer');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,6 +100,24 @@ class _MyHomePageState extends State<MyHomePage> {
                       // Display the question or "error" if there is no question
                       questionId == -1 ? 'Impossible de récupérer de nouvelles questions' : question,
                       style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  Visibility(
+                    visible: questionId != -1,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        ElevatedButton(
+                          onPressed: () => sendAnswer(true),
+                          child: Text('Vrai'),
+                        ),
+                        SizedBox(width: 20),
+                        ElevatedButton(
+                          onPressed: () => sendAnswer(false),
+                          child: Text('Faux'),
+                        ),
+                      ],
                     ),
                   ),
                 ],
