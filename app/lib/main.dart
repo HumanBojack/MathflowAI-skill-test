@@ -24,6 +24,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   String question = '';
   int questionId = -1;
+  int money = 0;
+  int moneyBuffer = 0;
   String apiUrl = "http://10.0.2.2:8000";
   int userId = 1;
 
@@ -31,6 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
     fetchQuestion();
+    fetchMoney();
   }
 
   Future<void> fetchQuestion() async {
@@ -63,8 +66,23 @@ class _MyHomePageState extends State<MyHomePage> {
 
     if (response.statusCode == 200) {
       fetchQuestion();
+      fetchMoney();
     } else {
       throw Exception('Failed to send answer');
+    }
+  }
+
+  Future<void> fetchMoney() async {
+    final response = await http.get(Uri.parse('$apiUrl/money/$userId'));
+    if (response.statusCode == 200) {
+      final data = json.decode(utf8.decode(response.bodyBytes));
+      setState(() {
+        money = data["money"];
+        moneyBuffer = data["buffer"];
+      });
+
+    } else {
+      throw Exception('Failed to load money');
     }
   }
 
@@ -124,6 +142,15 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                Text("Argent : $money"),
+                Text("Argent en attente : $moneyBuffer"),
+              ]
+            )
+          )
         ],
       ),
     );
