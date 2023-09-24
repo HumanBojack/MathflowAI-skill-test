@@ -9,8 +9,33 @@ from API.serializers import QuestionSerializer, AnswerSerializer
 
 @api_view(["GET"])
 def get_random_question(request):
-    # Get a random question
-    question = Question.objects.order_by("?").first()
+    # Get the user_id from the query params
+    user_id = request.query_params.get("user_id", None)
+    if user_id:
+        try:
+            # Get the user
+            user = User.objects.get(id=user_id)
+        except User.DoesNotExist:
+            return Response(
+                {"error": "User not found"}, status=status.HTTP_404_NOT_FOUND
+            )
+
+        # Get the user answers that were created today
+        answers = Answer.objects.filter(
+            user=user, created_at__date=datetime.now().date()
+        )
+        # Get the questions that the user has answered today
+        answered_questions = [answer.question.id for answer in answers]
+
+    if user_id:
+        # Get the questions that the user has not answered today
+        questions = Question.objects.exclude(id__in=answered_questions)
+    else:
+        # Get all the questions
+        questions = Question.objects.all()
+
+    # Get a random question from the questions queryset
+    question = questions.order_by("?").first()
     # Serialize the question
     serializer = QuestionSerializer(question)
     # Return the serialized question
