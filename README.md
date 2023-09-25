@@ -8,6 +8,8 @@ In addition to that, the user can earn a currency by correctly answering questio
 ## Run the project
 The Backend has been containerized in order to be ran easily. Run `docker compose up --build` at the root of the project to run it, and access it on port *8000*.
 
+The frontend, located in `/app`, can be ran using the apk provided in the latest release. The source code is also available in the `/app` folder.
+
 ## Backend
 ### Seed
 The database can be populated with 20 questions an a user by running the following command:
